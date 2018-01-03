@@ -91,8 +91,7 @@ You can use the bottom header to mount the tree on a breadboard and power/contro
 
 ## USING THE WEB INTERFACE
 
-<p align="center">
-This feature of the original project has not been adapted to the nightlight project. See the [original README](https://github.com/spark/xmastree/blob/master/README.md) and help port it! </p>
+This feature of the original project has not been adapted to the nightlight project. See the [original README](https://github.com/spark/xmastree/blob/master/README.md) and help port it!
 
 ## MODIFYING THE FIRMWARE
 
