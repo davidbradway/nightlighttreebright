@@ -4,9 +4,9 @@
 
 ![](https://github.com/spark/xmastree/raw/master/hardware/images/header.jpg)
 
-What does one do with a Particle Christmas Tree the rest of the year? I took my limited edition PCB packed full of cheer and reprogrammed the lights and tunes to act as a nursery night light. I used my tree PCB with a Particle Photon, but an Electron should work fine as well. The joystick controller now adjusts the brightness of the LEDs and selects from children's lullabies or white noise for optimal sleeping ambiance.
+What does one do with a Particle Christmas Tree PCB the rest of the year? I took my limited edition PCB (which I won via a Twitter-based pun competition, thanks!) and reprogrammed the lights and sounds to act as a nursery night light. I used the tree PCB with a Particle Photon, but an Electron board should work fine as well. The joystick controller now adjusts the brightness of the LEDs and selects from children's lullabies or white noise for optimal sleeping ambiance.
 
-Learn how to get started below. Sleep tight with your hardward from Team Particle!
+Learn how to get started below. Sleep tight with your hardware from Team Particle!
 
 ## THINGS YOU'LL NEED
  - Christmas Tree
@@ -14,13 +14,13 @@ Learn how to get started below. Sleep tight with your hardward from Team Particl
  - USB power supply (2A minimum rating)
  - Your Photon or Electron (new to Particle? Get started [here](https://docs.particle.io/guide/getting-started).)
 
-## STEPS 
+## STEPS
 
 You can setup the tree in a matter of minutes.
 
 1. Insert the Photon into the socket
-1. Plug in the USB power supply
-1. Flash [the nightlighttreebright firmware from the Web IDE][Firmware shared app] - no downloads required.
+2. Plug in the USB power supply
+3. Flash [the nightlighttreebright firmware from the Web IDE][Firmware shared app] - no downloads required.
 
 [Firmware shared app]: https://go.particle.io/shared_apps/5a4c080b1927d266c2000d97
 
@@ -34,7 +34,7 @@ You can setup the tree in a matter of minutes.
 
 ### Joystick
 
-The joystick is a 5 way button: up, down, left, right, and center (push in) then you can reprogram the usage any way you'd like. We have setup the button for you in the nightlighttreebright firmware to adjust LED brightness and choose lullabies or white nose.
+The joystick is a 5 way button: up, down, left, right, and center (push in). You can reprogram the usage any way you'd like. I have set up the button in the nightlighttreebright firmware to adjust LED brightness and choose lullabies or white noise and turn the features on and off.
 
 |DIR   | PIN |
 |:---  |:--- |
@@ -58,8 +58,7 @@ At the back of the tree you'll find a piezo speaker connected to pin D0. The fir
 
 ### Headers for breadboarding
 
-These pins breakout the power and control signal of the tree. You can mount the tree on a breadboard with the help of these pins. This will allow you to connect different hardware to your tree, daisy chain multiple trees, add more LEDs or even control it with other microcontrollers.
-
+These pins break out the power and control signal of the tree. You can mount the tree on a breadboard with the help of these pins. This will allow you to connect different hardware to your tree, daisy chain multiple trees, add more LEDs or even control it with other microcontrollers.
 
 |PIN     |DESCRIPTION|
 |:-------|:----------|
@@ -80,10 +79,9 @@ You can either use a Particle Photon or an Electron to control the tree. Since t
 
 ## WAYS TO SET UP THE TREE
 
-### As an ornament
+### Hanging
 
 The easiest way to setup the tree is to hang it on the wall while powering over USB. You can also rig up your own 5V power supply cable and plug it into the header.
-
 
 ### On a breadboard
 
@@ -94,7 +92,7 @@ You can use the bottom header to mount the tree on a breadboard and power/contro
 ## USING THE WEB INTERFACE
 
 <p align="center">
-This feature of the original project has not been adapted yet. See the [original README](https://github.com/davidbradway/xmastree/blob/master/README.md) and help port it! </p>
+This feature of the original project has not been adapted to the nightlight project. See the [original README](https://github.com/spark/xmastree/blob/master/README.md) and help port it! </p>
 
 ## MODIFYING THE FIRMWARE
 
