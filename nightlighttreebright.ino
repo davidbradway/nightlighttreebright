@@ -436,11 +436,12 @@ void processSongs()
                 playMary();
             else if (currentSong == SONG_TWINKLE)
                 playTwinkle();
-            // Work in Progress
+            else if (currentSong == SONG_WHEELS)
+                playWheels();
             else if (currentSong == SONG_WHITENOISE)
                 playWhiteNoise();
         }
-        delay(2000);
+        delay(1500);
     }
 }
 
