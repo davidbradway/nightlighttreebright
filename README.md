@@ -105,3 +105,11 @@ Click [here](https://github.com/particle-iot/xmastree/blob/master/FIRMWARE.md) f
 ## CONNECT
 
 Having problems or have awesome suggestions? Connect with us on the Particle [forum](https://community.particle.io/).
+
+## REFERENCES
+
+- [White Noise generator](https://arduino.stackexchange.com/a/18092)
+- [Mary Had a Little Lamb](https://github.com/bosgood/arduino-playground/blob/master/mary_had_a_little_lamb_v2/mary_had_a_little_lamb_v2.ino)
+- [Baa Baa Black Sheep](http://www.codegists.com/snippet/arduino/baabaaino_cowdinosaur_arduino)
+- [Twinkle Twinkle](http://littlebits.cc/projects/twinkle-twinkle-with-a-dancing-star)
+- [Pitches](http://www.instructables.com/id/Play-Custom-Melodies-on-Arduino/)
