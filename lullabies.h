@@ -16,12 +16,13 @@
  */
 #include "pitches.h"
 
-#define SONG_COUNT                          4
+#define SONG_COUNT                          5
 
 #define SONG_BAABAA                         0
 #define SONG_MARY                           1
 #define SONG_TWINKLE                        2
-#define SONG_WHITENOISE                     3
+#define SONG_WHEELS                         3
+#define SONG_WHITENOISE                     4
 
 /*
 #define   Do        523/2
@@ -57,7 +58,7 @@
  */
 
 /* Song List */
-String songList = "Baa Baa Black Sheep, Mary Had A Little Lamb, Twinkle Twinkle Little Star, White Noise Maker";
+String songList = "Baa Baa Black Sheep, Mary Had A Little Lamb, Twinkle Twinkle Little Star, The Wheels on the Bus, White Noise Maker";
 
 /* An indicator to exit the current song */
 bool changeSong = false;
@@ -189,6 +190,37 @@ int twinkleDurations[] = {
 };
 
 
+/* The Wheels on the Bus */
+// Credit:
+// Midi to Arduino Converter
+//     - Andy Tran (extramaster), 2015
+// https://www.extramaster.net/tools/midiToArduino/
+//
+// Process:
+// Midi -> Midi tracks -> Note mappings -> Frequency
+//
+// https://www.extramaster.net/tools/midiToArduino/processFile/?url=https:%2F%2Fwww.8notes.com%2Fschool%2Fmidi%2Fpiano%2Fwheels_on_the_busPNO.mid&track=2
+#define NOTE_COUNT_WHEELS 54
+
+int notes_wheels[] = {
+    NOTE_G3, NOTE_C4, NOTE_C4, NOTE_C4, NOTE_C4, NOTE_C3, NOTE_G4, NOTE_E4, NOTE_C4,
+    NOTE_D4, NOTE_D4, NOTE_D4, NOTE_B3, NOTE_A3, NOTE_G3, NOTE_G3, NOTE_C4, NOTE_C4,
+    NOTE_C4, NOTE_C4, NOTE_E4, NOTE_G4, NOTE_E4, NOTE_C4, NOTE_D4, NOTE_G3, NOTE_C4,
+    NOTE_G3, NOTE_C4, NOTE_C4, NOTE_C4, NOTE_C4, NOTE_E4, NOTE_G4, NOTE_E4, NOTE_C4,
+    NOTE_D4, NOTE_D4, NOTE_D4, NOTE_B3, NOTE_A3, NOTE_G3, NOTE_G3, NOTE_C4, NOTE_C4,
+    NOTE_C4, NOTE_C4, NOTE_E4, NOTE_G4, NOTE_E4, NOTE_C4, NOTE_D4, NOTE_G3, NOTE_C4
+};
+
+int durations_wheels[] = {
+    4,4,8,8,4,4,4,4,2,
+    4,4,2,4,4,4,4,4,8,
+    8,4,4,4,4,2,2,2,1,
+    4,4,8,8,4,4,4,4,2,
+    4,4,2,4,4,4,4,4,8,
+    8,4,4,4,4,2,2,2,1
+};
+
+
 /* White Noise Maker */
 unsigned long lastClick = micros();
 
@@ -270,7 +302,22 @@ void playTwinkle() {
     nextSong();
 }
 
-// Work in Progress
+void playWheels() {
+    for (int thisNote = 0; thisNote < NOTE_COUNT_WHEELS; thisNote++) {
+        if (changeSong)
+            return;
+
+       int noteDuration = 1000/durations_wheels[thisNote];
+       tone(PIN_BUZZER, notes_wheels[thisNote], noteDuration);
+       int pauseBetweenNotes = noteDuration * 1.30;
+       delay(pauseBetweenNotes);
+       noTone(PIN_BUZZER);
+    }
+    if (!repeatSong)
+        nextSong();
+}
+
+// White Noise Generator
 void playWhiteNoise() {
     while (1) { 
         if (changeSong)
@@ -281,7 +328,7 @@ void playWhiteNoise() {
             digitalWrite (PIN_BUZZER, generateNoise());
         }
     }
-    // Note funcitonality below is broken due to the while(1)
+    // Note functionality below is broken due to the while(1)
     if (!repeatSong)
         nextSong();
 }
