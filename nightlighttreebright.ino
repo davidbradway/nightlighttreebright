@@ -56,7 +56,7 @@ bool repeatSong = TRUE;
 int songCount = SONG_COUNT;
 
 /* Current song selected */
-int currentSong = SONG_BAABAA;
+int currentSong = SONG_BAABAA; //WHEELS;
 
 /* Current button down */
 volatile int buttonState = BUTTON_NONE;
@@ -280,14 +280,11 @@ int increaseBrightness()
 {
     Serial.println("increaseBrightness");
 
-    /* if the state is LED off, then do nothing */ 
-    if ( (currentState == STATE_LIGHT) || (currentState == STATE_BOTH) ) {
-        currentBrightness+=4;
-        if ( currentBrightness >= 80) {
-            currentBrightness = 79;
-        }
-        leds.setBrightness(currentBrightness);
-    }
+    /* Allow the brightness to be changed even with the light off */
+    currentBrightness += 4;
+    if ( currentBrightness >= 80)
+        currentBrightness = 79;
+    leds.setBrightness(currentBrightness);
     return currentBrightness;
 }
 
@@ -296,14 +293,11 @@ int decreaseBrightness()
 {
     Serial.println("decreaseBrightness");
 
-    /* if the state is LED off, then do nothing */ 
-    if ( (currentState == STATE_LIGHT) || (currentState == STATE_BOTH) ) {
-        currentBrightness-=4;
-        if ( currentBrightness <= 0) {
-            currentBrightness = 1;
-        }
-        leds.setBrightness(currentBrightness);
-    }
+    /* Allow the brightness to be changed even with the light off */
+    currentBrightness -= 4;
+    if ( currentBrightness <= 0)
+        currentBrightness = 1;
+    leds.setBrightness(currentBrightness);
     return currentBrightness;
 }
 
@@ -312,14 +306,11 @@ int nextSong()
 {
     Serial.println("nextSong");
 
-    /* if the state is not playing song, then do nothing */ 
-    if ( (currentState == STATE_SONG) || (currentState == STATE_BOTH) ) {
-        currentSong++;
-        if (currentSong == songCount)
-            currentSong = 0;
-        
-        changeSong = true;
-    }
+    /* Allow the song to be changed even when it is not playing */
+    currentSong++;
+    if (currentSong == songCount)
+        currentSong = 0;
+    changeSong = true;
     return currentSong;
 }
 
@@ -328,13 +319,11 @@ int prevSong()
 {
     Serial.println("prevSong");
 
-    if ( (currentState == STATE_SONG) || (currentState == STATE_BOTH) ) {
-        currentSong--;
-        if (currentSong < 0)
-            currentSong = songCount-1;
-                
-        changeSong = true;
-    }
+    /* Allow the song to be changed even when it is not playing */
+    currentSong--;
+    if (currentSong < 0)
+        currentSong = songCount-1;
+    changeSong = true;
     return currentSong;
 }
 
@@ -376,6 +365,7 @@ void buttonHandler()
 /* Process buttons for the 5-way joystick */
 void processButtons()
 {
+    /* If at lease one of the buttons is pressed... */
     if (buttonState != BUTTON_NONE) {
 
         /* Wait until button up */        
@@ -384,6 +374,7 @@ void processButtons()
             (digitalRead(PIN_RIGHT) == LOW) )
             return;
         
+        /* Once released, check which button it was, and call the callback function with the appropriate argument */
         if (buttonState == BUTTON_CENTER)
             buttonPressed("CENTER");
         else if (buttonState == BUTTON_UP)
@@ -418,7 +409,7 @@ void processLight()
         else {
             stopLight("");
         }
-        delay(2000);
+        delay(200);
     }
 }
 
@@ -545,9 +536,8 @@ void setup()
     songWorker = new Thread("song", processSongs);
     
     /* Start to play the 1st song and turn the LED on */
-    setState("BOTH");
-    //playSong("0");
-    //startLight("0xFFFFFF");
+    playSong("0");
+    startLight("0xFFFFFF");
 }
 
 /* This will be called repeatedly */
