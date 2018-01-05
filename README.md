@@ -2,7 +2,7 @@
 
 #### A PARTICLE CHRISTMAS TREE PROJECT
 
-![](https://github.com/spark/xmastree/raw/master/hardware/images/header.jpg)
+![](https://github.com/particle-iot/xmastree/raw/master/hardware/images/header.jpg)
 
 What does one do with a Particle Christmas Tree PCB the rest of the year? I took my limited edition PCB (which I won via a Twitter-based pun competition, thanks!) and reprogrammed the lights and sounds to act as a nursery night light. I used the tree PCB with a Particle Photon, but an Electron board should work fine as well. The joystick controller now adjusts the brightness of the LEDs and selects from children's lullabies or white noise for optimal sleeping ambiance.
 
@@ -22,15 +22,15 @@ You can setup the tree in a matter of minutes.
 2. Plug in the USB power supply
 3. Flash [the nightlighttreebright firmware from the Web IDE][Firmware shared app] - no downloads required.
 
-[Firmware shared app]: https://go.particle.io/shared_apps/5a4c080b1927d266c2000d97
+[Firmware shared app]: https://go.particle.io/shared_apps/5a4edd2c1638bf278e000013
 
 <p align="center">
-<img src="https://github.com/spark/xmastree/raw/master/hardware/images/steps-all.png">
+<img src="https://github.com/particle-iot/xmastree/raw/master/hardware/images/steps-all.png">
 </p>
 
 ## GET TO KNOW YOUR TREE
 
-![](https://github.com/spark/xmastree/raw/master/hardware/images/description.png)
+![](https://github.com/particle-iot/xmastree/raw/master/hardware/images/description.png)
 
 ### Joystick
 
@@ -75,7 +75,7 @@ You can either use a Particle Photon or an Electron to control the tree. Since t
 
 > **NOTE:** When controlled by an Electron, the tree will not work with just the LiPo battery plugged in. You'll need to connect the USB cable as well or other external 5V DC power source.
 
-![](https://github.com/spark/xmastree/raw/master/hardware/images/tree-plugged.png)
+![](https://github.com/particle-iot/xmastree/raw/master/hardware/images/tree-plugged.png)
 
 ## WAYS TO SET UP THE TREE
 
@@ -87,11 +87,11 @@ The easiest way to setup the tree is to hang it on the wall while powering over 
 
 You can use the bottom header to mount the tree on a breadboard and power/control it via your own choice of hardware or to daisy chain the tree to other trees or dotstar projects.
 
-![](https://github.com/spark/xmastree/raw/master/hardware/images/bb.png)
+![](https://github.com/particle-iot/xmastree/raw/master/hardware/images/bb.png)
 
 ## USING THE WEB INTERFACE
 
-This feature of the original project has not been adapted to the nightlight project. See the [original README](https://github.com/spark/xmastree/blob/master/README.md) and help port it!
+This feature of the original project has not been adapted to the nightlight project. See the [original README](https://github.com/particle-iot/xmastree/blob/master/README.md) and help port it!
 
 ## MODIFYING THE FIRMWARE
 
@@ -100,8 +100,8 @@ This feature of the original project has not been adapted to the nightlight proj
 Import the firmware to your Particle account in the Web IDE with the button above. You'll be
 able to add new songs or tweak the functionality to your heart's content.
 
-Click [here](https://github.com/spark/xmastree/blob/master/FIRMWARE.md) for more information about the Xmas Tree firmware.
+Click [here](https://github.com/particle-iot/xmastree/blob/master/FIRMWARE.md) for more information about the Xmas Tree firmware.
 
 ## CONNECT
 
-Having problems or have awesome suggestions? Connect with us on our [forum](https://community.particle.io/).
+Having problems or have awesome suggestions? Connect with us on the Particle [forum](https://community.particle.io/).
